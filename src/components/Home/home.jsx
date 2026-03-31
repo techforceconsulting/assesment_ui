@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const styles = {
   navbar: {
@@ -45,51 +45,47 @@ const styles = {
   }
 };
 
-function Home() {
+
+const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <nav style={styles.navbar}>
-        <h2>BrandName</h2>
+        <h2>Assessment Portal</h2>
         <ul style={{ display: 'flex', listStyle: 'none', gap: '20px' }}>
           <li>Home</li>
-          <li>About</li>
+          <li>Tests</li>
           <li>Contact</li>
         </ul>
       </nav>
 
       <header style={styles.hero}>
-        <h1>Welcome to Our Modern React Site</h1>
-        <p>Fast, responsive, and easy to customize.</p>
+        <h1>Welcome to Dashboard</h1>
+        <p>Select your test and start practicing</p>
 
-        <Link to="/aptitude">
-          <button style={styles.button}>Start Aptitude Test</button>
-        </Link>
-
-        <Link to="/editor">
-          <button style={{ ...styles.button, backgroundColor: "#2ed573" }}>
-            Start Coding Test
-          </button>
-        </Link>
+        <button style={styles.button} onClick={() => navigate("/coding")}>
+          Start Coding Test
+        </button>
       </header>
 
       <section style={styles.features}>
         <div style={styles.card}>
-          <h3>Fast Performance</h3>
-          <p>Optimized for speed using React's virtual DOM.</p>
-        </div>
 
-        <div style={styles.card}>
-          <h3>Responsive Design</h3>
-          <p>Looks great on desktops, tablets, and phones.</p>
+          <h3>Coding Test</h3>
+          <p>Practice programming MCQs</p>
         </div>
-
         <div style={styles.card}>
-          <h3>Component Based</h3>
-          <p>Build encapsulated components that manage their own state.</p>
+          <h3>Aptitude Test</h3>
+          <p>Improve logical thinking</p>
+        </div>
+        <div style={styles.card}>
+          <h3>English Test</h3>
+          <p>Enhance communication skills</p>
         </div>
       </section>
     </>
   );
-}
 
+};
 export default Home;
