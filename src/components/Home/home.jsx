@@ -67,6 +67,9 @@ const Home = () => {
         <button style={styles.button} onClick={() => navigate("/coding")}>
           Start Coding Test
         </button>
+        <button style={styles.button} onClick={() => navigate("/aptitude")}>
+          Start Aptitude Test
+        </button>
       </header>
 
       <section style={styles.features}>

@@ -5,6 +5,7 @@ import Login from "../auth/Login";
 import Signup from "../auth/Signup";
 import Home from "../Home/home";
 import Coding from "../assessments/Coding";
+import Aptitude from "../Aptitude/Aptitude";
 
 export default function AppRoutes() {
   return (
@@ -14,6 +15,7 @@ export default function AppRoutes() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/home" element={<Home />} />
         <Route path="/coding" element={<Coding />} />
+        <Route path="/aptitude" element={<Aptitude />} />
       </Routes>
     </Router>
   );
