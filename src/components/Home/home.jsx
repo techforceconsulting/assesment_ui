@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
-// --- Styles (You can move these to App.css) ---
 const styles = {
   navbar: {
     display: 'flex',
@@ -45,40 +45,51 @@ const styles = {
   }
 };
 
-// --- Components ---
+function Home() {
+  return (
+    <>
+      <nav style={styles.navbar}>
+        <h2>BrandName</h2>
+        <ul style={{ display: 'flex', listStyle: 'none', gap: '20px' }}>
+          <li>Home</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
 
-const Home = () => (
-  <>
-    <nav style={styles.navbar}>
-      <h2>BrandName</h2>
-      <ul style={{ display: 'flex', listStyle: 'none', gap: '20px' }}>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
-      </ul>
-    </nav>
+      <header style={styles.hero}>
+        <h1>Welcome to Our Modern React Site</h1>
+        <p>Fast, responsive, and easy to customize.</p>
 
-    <header style={styles.hero}>
-      <h1>Welcome to Our Modern React Site</h1>
-      <p>Fast, responsive, and easy to customize.</p>
-      <button style={styles.button}>Get Started</button>
-    </header>
+        <Link to="/aptitude">
+          <button style={styles.button}>Start Aptitude Test</button>
+        </Link>
 
-    <section style={styles.features}>
-      <div style={styles.card}>
-        <h3>Fast Performance</h3>
-        <p>Optimized for speed using React's virtual DOM.</p>
-      </div>
-      <div style={styles.card}>
-        <h3>Responsive Design</h3>
-        <p>Looks great on desktops, tablets, and phones.</p>
-      </div>
-      <div style={styles.card}>
-        <h3>Component Based</h3>
-        <p>Build encapsulated components that manage their own state.</p>
-      </div>
-    </section>
-  </>
-);
+        <Link to="/editor">
+          <button style={{ ...styles.button, backgroundColor: "#2ed573" }}>
+            Start Coding Test
+          </button>
+        </Link>
+      </header>
+
+      <section style={styles.features}>
+        <div style={styles.card}>
+          <h3>Fast Performance</h3>
+          <p>Optimized for speed using React's virtual DOM.</p>
+        </div>
+
+        <div style={styles.card}>
+          <h3>Responsive Design</h3>
+          <p>Looks great on desktops, tablets, and phones.</p>
+        </div>
+
+        <div style={styles.card}>
+          <h3>Component Based</h3>
+          <p>Build encapsulated components that manage their own state.</p>
+        </div>
+      </section>
+    </>
+  );
+}
 
 export default Home;

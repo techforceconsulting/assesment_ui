@@ -1,0 +1,11 @@
+.apt {
+    text-align: center;
+    margin-top: 50px;
+}
+
+button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    cursor: pointer;
+}
