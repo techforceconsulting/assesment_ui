@@ -7,11 +7,43 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
-    if (email && password) {
-      navigate("/home");
-    } else {
+  const handleLogin = async () => {
+    if (!email || !password) {
       alert("Enter email & password");
+      return;
+    }
+
+    try {
+      const res = await fetch("http://localhost:8080/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password
+        })
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        console.log("Login success:", data);
+
+        // 🔥 userType based navigation
+        if (data.userType === "admin") {
+          navigate("/admin");
+        } else {
+          navigate("/home");
+        }
+
+      } else {
+        alert(data.message || "Login failed");
+      }
+
+    } catch (err) {
+      console.error(err);
+      alert("Server error");
     }
   };
 
