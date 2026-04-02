@@ -15,7 +15,7 @@ export default function Login() {
     }
 
     try {
-      const res = await fetch("http://localhost:8080/auth/login", {
+      const res = await fetch("http://localhost:8080/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -31,7 +31,7 @@ export default function Login() {
       if (res.ok) {
         console.log("Login success:", data);
 
-        // 🔥 userType based navigation
+        //userType based navigation
         if (data.userType === "admin") {
           navigate("/admin");
         } else {
